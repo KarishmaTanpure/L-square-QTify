@@ -1,0 +1,13 @@
+.button {
+    background-color: var(--color-black);
+    color:var(--color-primary);
+    border-radius:12px;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+:root {
+    --color-primary: #34c94b;
+    --color-black: #121212; /* Fix the typo here */
+    --color-white: #ffffff;
+}
