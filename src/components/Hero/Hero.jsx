@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "./Hero.module.css";
 
 function Hero(){
-<div>
+return (<div className={styles.hero}>
     <div>
-        <h1>100 THousand Songs. ad-free</h1>
+        <h1>100 Thousand Songs. ad-free</h1>
         <h1>Over thousands podcast episodes</h1>
     </div>
     <div>
@@ -11,7 +12,7 @@ function Hero(){
         width={122}
         alt="headphones"/>
     </div>
-</div>
+</div>)
 }
 
 export default Hero;

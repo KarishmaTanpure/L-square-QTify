@@ -1,10 +1,12 @@
 import React from "react";
 import Navbar from "./components/NavBar/NavBar";
+import Hero from "./components/Hero/Hero";
 
 function App(){
     return (
         <>
-        <Navbar/>
+        <Navbar searchData={""}/> 
+        <Hero/>
         </>
     )
 }
