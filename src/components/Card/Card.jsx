@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Card.module.css";
+import { Link } from "react-router-dom";
+import { Tooltip, Chip } from "@mui/material"; 
 
 
 
@@ -11,25 +13,24 @@ function Card({data,type}) {
                 const {image,title,follows,songs,slug} = data;
                 return (
                     <Tooltip title={`${songs.length} songs`} placement="top" arrow>
-                        <a href={`/album/${slug}`}
+                        <Link to={`/album/${slug}`}>
                     <div className={styles.wrapper}>
                         <div className={styles.card}>
                           <img src={image} alt="song" loading="lazy" />
-                        </div>
                         <div className={styles.banner}>
                             <Chip
                                label={`${follows} Follows` }
                                size="small"
                                className={styles.chip}
                                />
-                    
-                            </div>
+            
+                        </div>
                         </div>
                         <div className={styles.titleWrapper}>
                             <p>{title}</p>
                         </div>
                     </div>
-                    </a>
+                    </Link>
                     </Tooltip>
                 )
             }
@@ -40,11 +41,11 @@ function Card({data,type}) {
             <div className={styles.wrapper}>
                 <div className={styles.card}>
                   <img src={image} alt="song" loading="lazy" />
-                </div>
                 <div className={styles.banner}>
                     <div className={styles.pill}>
                        <p>{likes} Likes</p>
                     </div>
+                </div>
                 </div>
                 <div className={styles.titleWrapper}>
                     <p>{title}</p>
@@ -52,6 +53,8 @@ function Card({data,type}) {
             </div>
         )
             }
+            default:
+                return <></>
         }
     }
     return getCard(type);

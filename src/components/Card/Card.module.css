@@ -29,6 +29,7 @@ width:160px;
     width:max-content;
     padding:6px;
     border-radius: 10px;
+    color: white;
 }
 
 .titleWrapper {
@@ -43,4 +44,5 @@ display:-webkit-box;
 .chip{
     color:white;
     background-color: var(--color-black);
+    z-index: 1;
 }
