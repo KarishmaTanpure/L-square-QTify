@@ -1,11 +1,13 @@
 import React, { useEffect,useRef } from "react";
 import styles from './Carousel.module.css';
-import { Navigation } from "swiper";
+import SwiperCore, { Navigation } from "swiper/core";
 import { Swiper,SwiperSlide,useSwiper } from "swiper/react";
 import "swiper/css";
 import CarouselLeftNavigation from './CarouselLeftNavigation/CarouselLeftNavigation';
 import CarouselRightNavigation from './CarouselRightNavigation/CarouselRightNavigation';
 import 'swiper/css/navigation';
+
+SwiperCore.use([Navigation]);
 
 
 export default function Carousel({data,renderComponent}) {
@@ -13,6 +15,7 @@ export default function Carousel({data,renderComponent}) {
 return(
     <div className={styles.wrapper}>
         <Swiper 
+        ref={swiperRef}
         style={{padding:"0px 20px"}}
         initialSlide={0}
         modules={[Navigation]}
@@ -20,7 +23,7 @@ return(
         spaceBetween={40}
         allowTouchMove
         >
-            <CarouselRightNavigation />
+            <CarouselRightNavigation swiper={swiperRef}  />
             <CarouselLeftNavigation/>
             
             {data.map((ele,index)=>  (
