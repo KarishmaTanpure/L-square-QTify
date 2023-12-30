@@ -12,12 +12,10 @@ export default function CarouselRightNavigation() {
   useEffect(() => {
     const handleSlideChange = () => {
       if (swiper && swiper.activeIndex >= 2) {
-        setHiddenCount(hiddenCount + 1);
-        if (hiddenCount >= 4) {
-          setIsVisible(false);
-        }
+        setHiddenCount((prevCount) => prevCount + 1);
       }
     };
+
 
     if (swiper && swiper.on) {
       swiper.on("slideChange", handleSlideChange);
@@ -27,7 +25,13 @@ export default function CarouselRightNavigation() {
         swiper.off("slideChange", handleSlideChange);
       };
     }
-  }, [swiper,hiddenCount]);
+  }, [swiper]);
+
+  useEffect(() => {
+    if (hiddenCount >= 4) {
+      setIsVisible(false);
+    }
+  }, [hiddenCount]);
 
   const handleButtonClick = () => {
     if (swiper && swiper.slideNext && typeof swiper.slideNext === "function") {
