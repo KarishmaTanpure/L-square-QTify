@@ -46,3 +46,7 @@ display:-webkit-box;
     background-color: var(--color-black);
     z-index: 1;
 }
+
+.filterWrapper{
+    margin-top:15px;
+}
